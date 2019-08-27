@@ -1,0 +1,36 @@
+scroll-view {
+  border-bottom: 1px solid #e0e5ff;
+}
+
+.nav-wrapper {
+  display: flex;
+}
+
+.item {
+  color: #a5aed6;
+  font-size: 28rpx;
+  padding: 14rpx 30rpx;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.item.active {
+  color: #394aa8;
+}
+
+.item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  border-bottom: 6rpx solid #a3aee9;
+  transition: all 0.5s;
+}
+
+.item.active::after {
+  width: 56rpx;
+}

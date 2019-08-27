@@ -1,0 +1,12 @@
+<wxs module="objGetStr" src="../../utils/util.wxs"></wxs>
+
+<scroll-view scroll-x bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="nav-wrapper">
+    <block wx:for="{{data}}" wx:for-item='item' wx:for-index="index" wx:key="index">
+      <view class='{{isIndex===index?"active":""}} item' bindtap='getIndex' data-index="{{index}}">
+        {{objGetStr.objGetStr(item,key)}}
+      </view>
+    </block>
+
+  </view>
+</scroll-view>

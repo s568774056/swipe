@@ -1,0 +1,71 @@
+
+function objGetStr(data, name) {
+  if (typeof data == 'string') {
+    return data;
+  }
+  return data[name];
+}
+
+
+function dateConvert(time, dateFormat) {
+  if ( time == undefined || time == '') {
+
+    return '';
+  } else {
+
+    var date = getDate();
+    date.setTime(time);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    month = month < 10 ? '0' + month : month;
+    var day = date.getDate();
+    var hours = date.getHours();       //获取当前小时数(0-23)
+    hours = hours < 10 ? '0' + hours : hours;
+    var minutes = date.getMinutes();     //获取当前分钟数(0-59)
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var seconds = date.getSeconds();     //获取当前秒数(0-59)
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    day = day < 10 ? '0' + day : day;
+
+    if (dateFormat == 'm-d') {
+      date = month + '-' + day;
+    } else if (dateFormat == 'h-m') {
+      date = hours + ':' + minutes;
+    } else if (dateFormat == 'y-m-d') {
+      date = year + '-' + month + '-' + day;
+    } else if (dateFormat == 'y-m-d h:m:s') {
+      date = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    }
+
+    return date;
+  }
+
+}
+
+function dateConvertTime(time) {
+
+  if (time <= 0 || time == undefined || time == '') {
+    return '';
+  } else {
+    var date = getDate();
+    date.setTime(time);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    month = month < 10 ? '0' + month : month;
+    var day = date.getDate();
+    var hours = date.getHours();       //获取当前小时数(0-23)
+    hours = hours < 10 ? '0' + hours : hours;
+    var minutes = date.getMinutes();     //获取当前分钟数(0-59)
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var seconds = date.getSeconds();     //获取当前秒数(0-59)
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    day = day < 10 ? '0' + day : day;
+    date = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    return date;
+  }
+}
+module.exports = {
+  objGetStr: objGetStr,
+  dateConvert: dateConvert,
+  dateConvertTime: dateConvertTime
+}

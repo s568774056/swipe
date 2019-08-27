@@ -1,0 +1,14 @@
+<navbar data="{{roomList}}" bindonClick="changeNavBar" isIndex='{{isIndex}}'></navbar>
+<view id="top-wrapper"></view>
+<swiper class='hide' bindanimationfinish="swiperChange" style="height:{{swiper_height}};" current="{{isIndex}}">
+  <swiper-item wx:for="{{roomList}}" wx:for-item='room' wx:for-index="index">
+    <view id="start{{index}}" class='start-view'></view>
+    <block wx:for="{{imgUrls}}" wx:for-item='path' wx:for-index="img-index">
+      <image mode="aspectFill" src="{{path}}" />
+    </block>
+    <view id="end{{index}}" class='start-view'></view>
+  </swiper-item>
+</swiper>
+<view id="bottom-wrapper"></view>
+
+<view>http://www.3dnetworks.com.cn/三力网络欢迎您</view>
